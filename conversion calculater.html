@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>在线进制转换</title>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<style>		input{			
+		width: 200px;			
+		height: 30px;			
+		font: 14px/1 "microsoft yahei";			
+		color:saddlebrown;		
+		}		
+		input::input-placeholder{text-align: center;} 		
+		input::input-placeholder{text-align: center;}
+		</style>
+
+<script>
+	function calcu(){
+		
+		var numb=document.getElementById("num").value;
+		var Number=parseInt(numb);
+		var reg16 = /^[0-9a-fA-F]{1,10}$/;
+		var reg2 = /^[0-1]{1,10}$/;
+		var reg8 = /^[0-8]{1,10}$/;
+		var reg10 = /^[0-9]{1,10}$/;
+	
+		var tynum=document.getElementById("tittle").value;
+		var to;
+		if(!reg2.test(numb) && tynum == 2){
+			document.getElementById("two").value = "输入不合法！";
+			document.getElementById("two").style="color:red";
+			document.getElementById("sixteen").value = "输入不合法！";
+			document.getElementById("sixteen").style="color:red";
+			document.getElementById("ten").value = "输入不合法！";
+			document.getElementById("ten").style="color:red";
+			document.getElementById("eight").value = "输入不合法！";
+			document.getElementById("eight").style="color:red";
+			return;
+		}
+			if(!reg16.test(numb) && tynum == 16){
+			document.getElementById("two").value = "输入不合法！";
+			document.getElementById("two").style="color:red";
+			document.getElementById("sixteen").value = "输入不合法！";
+			document.getElementById("sixteen").style="color:red";
+			document.getElementById("ten").value = "输入不合法！";
+			document.getElementById("ten").style="color:red";
+			document.getElementById("eight").value = "输入不合法！";
+			document.getElementById("eight").style="color:red";
+			return;
+		}
+				if(!reg10.test(numb) && tynum == 10){
+			document.getElementById("two").value = "输入不合法！";
+			document.getElementById("two").style="color:red";
+			document.getElementById("sixteen").value = "输入不合法！";
+			document.getElementById("sixteen").style="color:red";
+			document.getElementById("ten").value = "输入不合法！";
+			document.getElementById("ten").style="color:red";
+			document.getElementById("eight").value = "输入不合法！";
+			document.getElementById("eight").style="color:red";
+			return;
+		}
+					if(!reg8.test(numb) && tynum == 8){
+			document.getElementById("two").value = "输入不合法！";
+			document.getElementById("two").style="color:red";
+			document.getElementById("sixteen").value = "输入不合法！";
+			document.getElementById("sixteen").style="color:red";
+			document.getElementById("ten").value = "输入不合法！";
+			document.getElementById("ten").style="color:red";
+			document.getElementById("eight").value = "输入不合法！";
+			document.getElementById("eight").style="color:red";
+			return;
+		}
+		to=parseInt(numb,tynum).toString(2);
+		document.getElementById("two").value=to;
+		document.getElementById("two").style="color:black";
+		to=parseInt(numb,tynum).toString(16);
+		document.getElementById("sixteen").value=to;
+		document.getElementById("sixteen").style="color:black";
+		to=parseInt(numb,tynum).toString(8);
+		document.getElementById("eight").value=to;
+		document.getElementById("eight").style="color:black";
+		to=parseInt(numb,tynum).toString(10);
+		document.getElementById("ten").value=to;
+		document.getElementById("ten").style="color:black";
+			
+	}
+</script>
+	<body>
+		<table class="table text-center">
+			<tr bgcolor="cornflowerblue">
+				<td colspan="2">进制转换计算器</td>
+			</tr>
+			<tr>
+				<td><select id="tittle"  class="form-control" >
+					<option value="2" >二进制</option>
+					<option value="16">十六进制</option>
+					<option value="8">八进制</option>
+					<option value="10">十进制</option>
+				</select></td>
+				<td><input type="text" id="num" placeholder="键入需要转换的数字" class="form-control"/></td>
+			</tr>
+
+			
+		</table>
+		<hr style="border: 1px solid black;" />
+		<table class="table table-bordered  table-striped text-center">
+			<tr>
+				<td>二进制：</td>	
+			<td><input type="text" id="two"  placeholder="二进制"  class="form-control"/></td>
+			</tr>
+			<tr>
+				<td>十六进制：</td>	
+			<td><input type="text" id="sixteen" placeholder="十六进制"  class="form-control"/></td>
+			</tr>
+			<tr>
+				<td>八进制：</td>	
+			<td><input type="text" id="eight" placeholder="八进制"  class="form-control"/></td>
+			</tr>
+			<tr>
+				<td>十进制：</td>	
+			<td><input type="text" id="ten" placeholder="十进制" class="form-control"/></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button onclick="calcu()" class="btn btn-primary btn-block">点击转换	</button></td>
+			</tr>
+		</table>
+	</body>
+</html>
